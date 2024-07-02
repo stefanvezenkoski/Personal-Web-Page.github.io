@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>Stefan's site</title>
+</head>
+<body>
+<div class="goren">
+  <nav>
+    <img src="ovae-removebg-preview.png" alt="">
+    <h1 class="logo">Portfo<span>lio</span></h1>
+    <a href="#">Home</a>
+    <a href="#about-me" id="about-link">About me</a>
+    <a href="#services">Services</a>
+    <a href="#skills">Skills</a>
+    <a href="contact.html" class="btn">Contact me</a>
+    <br>
+  </nav>
+  <div class="linkovi">
+    <a href="https://www.linkedin.com/in/stefan-vezenkoski-226551287/"><img src="circle-linkedin-512.webp" height="25px" alt=""></a>
+    <a href="https://github.com/stefanvezenkoski"><img src="download.png" height="25px" alt=""></a>
+    <a href="https://www.instagram.com/stefanvezenkoski/"><img src="Instagram_logo_2022.svg.webp" height="25px" alt=""></a>
+  </div>
+  <div class="content content-text">
+    <h4>Hello, my name is</h4>
+    <h1>Stefan <span>Vezenkoski</span></h1>
+    <hr>
+    <h2 id="typewriter-text" style="font-size: 18px; margin-top: 10px; font-family:'Courier New', Courier, monospace;">
+    </h2>
+    <div class="divv"></div>
+  </div>
+  <section>
+    <div class="main">
+      <img src="3E566EA7-637B-4C22-8B54-7878077D0D78.png" alt="">
+    </div>
+  </section>
+  <hr>
+  <div class="desen_del">
+    <h2 id="typewriter-texxt" style="font-size: 30px; margin-top: 10px; font-family:'Courier New', Courier, monospace;" >
+  </div>
+
+  <section id="about-me" class="About">
+    <div class="main">
+      <div class="about-text">
+        <img src="slika1.jpg" alt="">
+        <div class="aboutme">
+          <h2>About <div class="span2">Me</div></h2>
+          <hr>
+          <p>
+            Hello! I'm a 20-year-old Computer Science and Engineering student at FCSE - Skopje, originally from Prilep, Macedonia. My academic journey began with a focus on healthcare at Gjorce Petrov Medical High School in Prilep, but my true passion led me to the dynamic field of technology. Now, at FCSE, I'm excited to combine my interests and skills in engineering and computer science to drive innovation and create impactful solutions.</p>
+          <hr>
+          <a class="button-28" href="Формули_за_прв колоквиум2024.pdf" download><b>Download CV</b></a>
+        </div>
+
+      </div>
+    </div>
+    <img src="wavecopy-removebg-preview.png" alt="">
+  </section>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('about-link').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('#about-me').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('a[href="#services"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</div>
+<div class="services" id="services">
+  <h2>Services</h2>
+
+  <div class="service">
+    <h4>Service 1: Web Design</h4>
+    <p><strong>Description</strong>: We create modern and functional websites that meet your business needs.</p>
+    <p><strong>Benefits</strong>:</p>
+    <ul>
+      <li>Responsive design for all devices.</li>
+      <li>Fast loading and search engine optimization.</li>
+      <li>Easy content management.</li>
+    </ul>
+    <a href="#">Learn More</a>
+  </div>
+
+  <div class="service">
+    <h4>Service 2: Digital Marketing</h4>
+    <p><strong>Description</strong>: We help increase your online presence through strategic marketing campaigns.</p>
+    <p><strong>Benefits</strong>:</p>
+    <ul>
+      <li>SEO optimization.</li>
+      <li>Social media management.</li>
+      <li>Paid advertising and analytics.</li>
+    </ul>
+    <a href="#">Contact Us</a>
+  </div>
+
+  <div class="service">
+    <h4>Service 3: Consulting</h4>
+    <p><strong>Description</strong>: Professional advice and guidance to improve your business processes.</p>
+    <p><strong>Benefits</strong>:</p>
+    <ul>
+      <li>Personalized strategies.</li>
+      <li>Experienced consultants.</li>
+      <li>Continuous support.</li>
+    </ul>
+    <a href="#">Schedule a Consultation</a>
+  </div>
+</div>
+<section id="skills" class="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skill-item">
+      <h3>Web Development</h3>
+      <p>I am proficient in HTML, CSS, JavaScript, and various front-end frameworks such as Bootstrap and React.</p>
+    </div>
+    <div class="skill-item">
+      <h3>Backend Development</h3>
+      <p>I have experience with Node.js and PHP for server-side scripting and building APIs.</p>
+    </div>
+    <div class="skill-item">
+      <h3>Database Management</h3>
+      <p>Skills in SQL and NoSQL databases like MySQL, MongoDB, and Firebase.</p>
+    </div>
+    <div class="skill-item">
+      <h3>UI/UX Design</h3>
+      <p>Proficiency in designing user interfaces and user experiences for web applications.</p>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('a[href="#skills"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('#skills').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
