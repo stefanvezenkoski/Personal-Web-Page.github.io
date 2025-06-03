@@ -3,148 +3,1721 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css">
-  <title>Stefan's site</title>
+  <title>Stefan Vezenkoski | Professional Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #E36858;
+      --secondary: #4682A9;
+      --accent: #b6a96f;
+      --dark: #252209;
+      --light: #eff0e8;
+      --white: #ffffff;
+      --gray-light: #f8f9fa;
+      --gray-medium: #e9ecef;
+      --black: #0d0d0d;
+    }
+
+    /* Modern CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--black);
+      overflow-x: hidden;
+      background-image:
+              radial-gradient(circle at 10% 20%, rgba(70, 130, 169, 0.1) 0%, transparent 20%),
+              radial-gradient(circle at 90% 80%, rgba(227, 104, 88, 0.1) 0%, transparent 20%),
+              linear-gradient(to bottom, var(--black), #1a1a1a);
+    }
+
+    /* Fluid typography */
+    html {
+      font-size: clamp(14px, 1.5vw, 16px);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 600;
+    }
+
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 8%;
+      background-color: rgba(13, 13, 13, 0.85);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo {
+      color: var(--primary);
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      color: var(--light);
+    }
+
+    .logo i {
+      margin-right: 0.5rem;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--primary);
+      z-index: -1;
+      transition: width 0.4s ease;
+    }
+
+    nav a:hover {
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(227, 104, 88, 0.3);
+    }
+
+    nav a:hover::before {
+      width: 100%;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--primary), #d15a4a);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      transition: all 0.4s ease;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(227, 104, 88, 0.3);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(135deg, #d15a4a, var(--primary));
+      z-index: -1;
+      transition: width 0.4s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(227, 104, 88, 0.5);
+    }
+
+    .btn:hover::before {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+              radial-gradient(circle at center, rgba(70, 130, 169, 0.05) 0%, transparent 70%),
+              radial-gradient(circle at 80% 20%, rgba(227, 104, 88, 0.05) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 50%;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero h4 {
+      color: var(--accent);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      color: var(--primary);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 15px rgba(227, 104, 88, 0.2);
+    }
+
+    .hero h1 span {
+      color: var(--light);
+      -webkit-text-fill-color: var(--light);
+    }
+
+    .hero hr {
+      width: 120px;
+      height: 4px;
+      background: var(--primary);
+      border: none;
+      margin: 1.5rem 0;
+      border-radius: 2px;
+    }
+
+    #typewriter-text {
+      font-family: 'Courier New', monospace;
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      color: #aaa;
+      margin: 1.5rem 0;
+      line-height: 1.8;
+      max-width: 90%;
+    }
+
+    .hero-image {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40%;
+      max-width: 500px;
+      z-index: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+              0 20px 50px rgba(0, 0, 0, 0.5),
+              0 0 0 8px rgba(70, 130, 169, 0.1),
+              0 0 0 16px rgba(182, 169, 111, 0.05);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .hero-image:hover {
+      transform: translateY(-50%) scale(1.02) rotate(1deg);
+      box-shadow:
+              0 25px 60px rgba(0, 0, 0, 0.6),
+              0 0 0 8px rgba(70, 130, 169, 0.15),
+              0 0 0 16px rgba(182, 169, 111, 0.1);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Social Links */
+    .social-links {
+      position: fixed;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 10;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(13, 13, 13, 0.7);
+      backdrop-filter: blur(5px);
+      transition: all 0.4s ease;
+      color: var(--light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 1.3rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 25px rgba(227, 104, 88, 0.4);
+    }
+
+    /* About Section */
+    .about {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+              radial-gradient(circle at 90% 10%, rgba(182, 169, 111, 0.05) 0%, transparent 40%),
+              linear-gradient(to bottom, rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 1));
+      z-index: -1;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover {
+      transform: perspective(1000px) rotateY(0deg);
+    }
+
+    .about-image img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content {
+      flex: 1;
+      background: rgba(25, 25, 25, 0.7);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .about-content h2 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      background: linear-gradient(to right, var(--accent), #d1c283);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-content h2 span {
+      color: var(--light);
+      -webkit-text-fill-color: var(--light);
+    }
+
+    .about-content p {
+      color: #ccc;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .button-28 {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border: 2px solid var(--secondary);
+      border-radius: 50px;
+      color: var(--light);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      background: rgba(70, 130, 169, 0.2);
+    }
+
+    .button-28::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--secondary);
+      z-index: -1;
+      transition: width 0.4s ease;
+    }
+
+    .button-28:hover {
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(70, 130, 169, 0.4);
+    }
+
+    .button-28:hover::before {
+      width: 100%;
+    }
+
+    /* Professional CV Section */
+    .cv-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+              radial-gradient(circle at 10% 90%, rgba(227, 104, 88, 0.05) 0%, transparent 40%),
+              linear-gradient(to bottom, rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 1));
+      z-index: -1;
+    }
+
+    .cv-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      color: var(--light);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .section-header p {
+      color: #aaa;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+
+    .cv-display {
+      background: rgba(25, 25, 25, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .cv-header-card {
+      background: linear-gradient(135deg, var(--primary) 0%, #c95545 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv-header-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      transform: rotate(30deg);
+    }
+
+    .cv-header-card h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: white;
+      position: relative;
+    }
+
+    .cv-header-card h3 {
+      font-weight: 400;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    .cv-content {
+      padding: 3rem;
+    }
+
+    .cv-section-title {
+      color: var(--accent);
+      margin: 2.5rem 0 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      font-weight: 600;
+    }
+
+    .cv-section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .cv-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cv-info-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .cv-info-icon {
+      width: 55px;
+      height: 55px;
+      background: rgba(70, 130, 169, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .cv-info-content h4 {
+      color: var(--light);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .cv-info-content p {
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    .cv-timeline {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 3rem;
+    }
+
+    .cv-timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 10px;
+      height: calc(100% - 10px);
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .cv-timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      background: rgba(30, 30, 30, 0.5);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .cv-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 20px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--dark);
+      border: 3px solid var(--primary);
+    }
+
+    .cv-timeline-date {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cv-timeline-date i {
+      font-size: 1.1rem;
+    }
+
+    .cv-timeline-title {
+      font-size: 1.4rem;
+      color: var(--light);
+      margin-bottom: 0.8rem;
+    }
+
+    .cv-timeline-desc {
+      color: #bbb;
+      line-height: 1.7;
+    }
+
+    .cv-skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .cv-skill-category {
+      background: rgba(30, 30, 30, 0.5);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-top: 3px solid var(--accent);
+    }
+
+    .cv-skill-category h4 {
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .cv-skill-category h4 i {
+      color: var(--accent);
+    }
+
+    .cv-skill-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .cv-skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      color: #ddd;
+    }
+
+    .cv-skill-bar {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cv-skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #e57c6e);
+      border-radius: 5px;
+      position: relative;
+      width: 0;
+      transition: width 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .cv-skill-progress::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+    }
+
+    .cv-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    /* Additional Sections */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: rgba(25, 25, 25, 0.7);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      padding: 1.8rem;
+    }
+
+    .project-content h3 {
+      color: var(--light);
+      margin-bottom: 0.8rem;
+      font-size: 1.5rem;
+    }
+
+    .project-content p {
+      color: #bbb;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(70, 130, 169, 0.2);
+      color: var(--light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* Floating Elements */
+    .floating {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.1;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .floating.shape1 {
+      top: 10%;
+      left: 5%;
+      font-size: 10rem;
+      color: var(--primary);
+      animation-delay: 0s;
+    }
+
+    .floating.shape2 {
+      top: 20%;
+      right: 8%;
+      font-size: 8rem;
+      color: var(--accent);
+      animation-delay: 2s;
+    }
+
+    .floating.shape3 {
+      bottom: 15%;
+      left: 15%;
+      font-size: 12rem;
+      color: var(--secondary);
+      animation-delay: 4s;
+    }
+
+    .floating.shape4 {
+      bottom: 20%;
+      right: 15%;
+      font-size: 9rem;
+      color: var(--primary);
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-40px) rotate(10deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    /* Particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: floatParticle 15s infinite linear;
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero-content {
+        max-width: 60%;
+      }
+
+      .hero-image {
+        width: 50%;
+      }
+
+      .about-container {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 7rem;
+      }
+
+      .hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .hero hr {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-image {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+        margin: 3rem 0;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cv-content {
+        padding: 1.5rem;
+      }
+
+      .cv-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cv-actions {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-content {
+        padding: 2rem;
+      }
+
+      .cv-header-card {
+        padding: 2rem 1rem;
+      }
+
+      .cv-header-card h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    /* Scroll animation */
+    .hidden {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Додади ова во твојот CSS */
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-element {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: float 15s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Додади ги овие во CSS */
+    .contact-section {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+    }
+
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(25, 25, 25, 0.7);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      background: rgba(30, 30, 30, 0.7);
+      color: var(--light);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(227, 104, 88, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+  </style>
 </head>
 <body>
-<div class="goren">
-  <nav>
-    <img src="ovae-removebg-preview.png" alt="">
-    <h1 class="logo">Portfo<span>lio</span></h1>
+
+<div class="floating-elements" id="floatingElements"></div>
+<div class="floating-elements" id="floatingElements1"></div>
+<div class="floating-elements" id="floatingElements2"></div>
+<div class="floating-elements" id="floatingElements3"></div>
+
+<!-- Floating Elements -->
+<div class="floating shape1"><i class="fas fa-code"></i></div>
+<div class="floating shape2"><i class="fas fa-laptop-code"></i></div>
+<div class="floating shape3"><i class="fas fa-cube"></i></div>
+<div class="floating shape4"><i class="fas fa-microchip"></i></div>
+
+<!-- Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Navigation -->
+<nav>
+  <h1 class="logo"><i class="fas fa-terminal"></i>Portfo<span>lio</span></h1>
+  <div class="nav-links">
     <a href="#">Home</a>
-    <a href="#about-me" id="about-link">About me</a>
-    <a href="#services">Services</a>
+    <a href="#about">About</a>
     <a href="#skills">Skills</a>
-    <a href="contact.html" class="btn">Contact me</a>
-    <br>
-  </nav>
-  <div class="linkovi">
-    <a href="https://www.linkedin.com/in/stefan-vezenkoski-226551287/"><img src="circle-linkedin-512.webp" height="25px" alt=""></a>
-    <a href="https://github.com/stefanvezenkoski"><img src="download.png" height="25px" alt=""></a>
-    <a href="https://www.instagram.com/stefanvezenkoski/"><img src="Instagram_logo_2022.svg.webp" height="25px" alt=""></a>
+    <a href="#cv">CV</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="btn">Contact</a>
   </div>
-  <div class="content content-text">
-    <h4>Hello, my name is</h4>
-    <h1>Stefan <span>Vezenkoski</span></h1>
-    <hr>
-    <h2 id="typewriter-text" style="font-size: 18px; margin-top: 10px; font-family:'Courier New', Courier, monospace;">
-    </h2>
-    <div class="divv"></div>
-  </div>
-  <section>
-    <div class="main">
-      <img src="3E566EA7-637B-4C22-8B54-7878077D0D78.png" alt="">
-    </div>
-  </section>
-  <hr>
-  <div class="desen_del">
-    <h2 id="typewriter-texxt" style="font-size: 30px; margin-top: 10px; font-family:'Courier New', Courier, monospace;" >
-  </div>
+</nav>
 
-  <section id="about-me" class="About">
-    <div class="main">
-      <div class="about-text">
-        <img src="slika1.jpg" alt="">
-        <div class="aboutme">
-          <h2>About <div class="span2">Me</div></h2>
-          <hr>
-          <p>
-            Hello! I'm a 20-year-old Computer Science and Engineering student at FCSE - Skopje, originally from Prilep, Macedonia. My academic journey began with a focus on healthcare at Gjorce Petrov Medical High School in Prilep, but my true passion led me to the dynamic field of technology. Now, at FCSE, I'm excited to combine my interests and skills in engineering and computer science to drive innovation and create impactful solutions.</p>
-          <hr>
-          <a class="button-28" href="Формули_за_прв колоквиум2024.pdf" download><b>Download CV</b></a>
-        </div>
-
-      </div>
-    </div>
-    <img src="wavecopy-removebg-preview.png" alt="">
-  </section>
-  <script src="script.js"></script>
-  <script>
-    document.getElementById('about-link').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.querySelector('#about-me').scrollIntoView({ behavior: 'smooth' });
-    });
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('a[href="#services"]').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
-
-</div>
-<div class="services" id="services">
-  <h2>Services</h2>
-
-  <div class="service">
-    <h4>Service 1: Web Design</h4>
-    <p><strong>Description</strong>: We create modern and functional websites that meet your business needs.</p>
-    <p><strong>Benefits</strong>:</p>
-    <ul>
-      <li>Responsive design for all devices.</li>
-      <li>Fast loading and search engine optimization.</li>
-      <li>Easy content management.</li>
-    </ul>
-    <a href="#">Learn More</a>
-  </div>
-
-  <div class="service">
-    <h4>Service 2: Digital Marketing</h4>
-    <p><strong>Description</strong>: We help increase your online presence through strategic marketing campaigns.</p>
-    <p><strong>Benefits</strong>:</p>
-    <ul>
-      <li>SEO optimization.</li>
-      <li>Social media management.</li>
-      <li>Paid advertising and analytics.</li>
-    </ul>
-    <a href="#">Contact Us</a>
-  </div>
-
-  <div class="service">
-    <h4>Service 3: Consulting</h4>
-    <p><strong>Description</strong>: Professional advice and guidance to improve your business processes.</p>
-    <p><strong>Benefits</strong>:</p>
-    <ul>
-      <li>Personalized strategies.</li>
-      <li>Experienced consultants.</li>
-      <li>Continuous support.</li>
-    </ul>
-    <a href="#">Schedule a Consultation</a>
-  </div>
-</div>
-<section id="skills" class="skills">
+<!-- Hero Section -->
+<section class="hero">
   <div class="container">
-    <h2>Skills</h2>
-    <div class="skill-item">
-      <h3>Web Development</h3>
-      <p>I am proficient in HTML, CSS, JavaScript, and various front-end frameworks such as Bootstrap and React.</p>
+    <div class="hero-content animate">
+      <h4>Hello, my name is</h4>
+      <h1>Stefan <span>Vezenkoski</span></h1>
+      <hr>
+      <div id="typewriter-text"></div>
+      <a href="#contact" class="btn" style="margin-top: 2rem;">Get In Touch</a>
     </div>
-    <div class="skill-item">
-      <h3>Backend Development</h3>
-      <p>I have experience with Node.js and PHP for server-side scripting and building APIs.</p>
+
+    <div class="hero-image">
+      <img style="height: 1000px; width: auto;" src="ec63144b-4269-4e10-82e9-b86030582a9d.jpeg" alt="Stefan Vezenkoski">
     </div>
-    <div class="skill-item">
-      <h3>Database Management</h3>
-      <p>Skills in SQL and NoSQL databases like MySQL, MongoDB, and Firebase.</p>
+  </div>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/stefan-vezenkoski-226551287/"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/stefanvezenkoski"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/stefanvezenkoski/"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header">
+      <h2>About <span>Me</span></h2>
+      <p>Get to know me better</p>
     </div>
-    <div class="skill-item">
-      <h3>UI/UX Design</h3>
-      <p>Proficiency in designing user interfaces and user experiences for web applications.</p>
+
+    <div class="about-container">
+      <div class="about-image hidden">
+        <img src="slika1.jpg">
+      </div>
+
+      <div class="about-content hidden">
+        <p>
+          Hello! I'm a 21-year-old Computer Science and Engineering student at FCSE - Skopje, originally from Prilep, Macedonia. My academic journey began with a focus on healthcare at Gjorce Petrov Medical High School in Prilep, but my true passion led me to the dynamic field of technology. Now, at FCSE, I'm excited to combine my interests and skills in engineering and computer science to drive innovation and create impactful solutions.
+        </p>
+        <p>
+          With a strong foundation in both technical and analytical skills, I thrive in challenging environments where I can apply my problem-solving abilities to create efficient and elegant solutions. My diverse background gives me a unique perspective on how technology can transform industries and improve lives.
+        </p>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Professional CV Section -->
+<section id="cv" class="cv-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Professional <span>CV</span></h2>
+      <p>My qualifications and experience</p>
+    </div>
+
+    <div class="cv-display hidden">
+      <div class="cv-header-card">
+        <h1>Stefan Vezenkoski</h1>
+        <h3>Computer Science & Engineering Student | Medical High School Graduate</h3>
+      </div>
+
+      <div class="cv-content">
+        <div class="cv-info-grid">
+          <div class="cv-info-item">
+            <div class="cv-info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="cv-info-content">
+              <h4>Email</h4>
+              <p>vezenkostefan31@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="cv-info-item">
+            <div class="cv-info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="cv-info-content">
+              <h4>Phone</h4>
+              <p>+389 75 428 343</p>
+            </div>
+          </div>
+
+          <div class="cv-info-item">
+            <div class="cv-info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="cv-info-content">
+              <h4>Location</h4>
+              <p>Skopje, Macedonia</p>
+            </div>
+          </div>
+
+          <div class="cv-info-item">
+            <div class="cv-info-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="cv-info-content">
+              <h4>Languages</h4>
+              <p>Macedonian (Native), English (Fluent)</p>
+            </div>
+          </div>
+        </div>
+        <div class="cv-info-item">
+          <div class="cv-info-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="cv-info-content">
+            <h4>Driving Licence</h4>
+            <p>B category</p>
+          </div>
+        </div>
+      </div>
+
+        <h3 class="cv-section-title">Education</h3>
+
+        <div class="cv-timeline">
+          <div class="cv-timeline-item">
+            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2023 - Present</div>
+            <div class="cv-timeline-title">Faculty of Computer Science and Engineering (FCSE), Skopje</div>
+            <div class="cv-timeline-desc">
+              Bachelor of Computer Science and Engineering<br>
+              Java, C++, JS, C#, .NET Web Forms, .NET MVC, Unix, Linux, Git, GitHub, Linux, Docker, HTML, CSS...
+            </div>
+          </div>
+
+          <div class="cv-timeline-item">
+            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2019 - 2023</div>
+            <div class="cv-timeline-title">Medical High School "Gjorce Petrov", Prilep</div>
+            <div class="cv-timeline-desc">
+              Graduated with honors (GPA: 5.0)
+            </div>
+          </div>
+        </div>
+
+        <h3 class="cv-section-title">Technical Skills</h3>
+
+        <div class="cv-skills-container">
+          <div class="cv-skill-category">
+            <h4><i class="fas fa-code"></i> Programming Languages</h4>
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>C/C++</span>
+                <span>92%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 92%"></div>
+              </div>
+            </div>
+
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>Java</span>
+                <span>85%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>JavaScript</span>
+                <span>88%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-skill-category">
+            <h4><i class="fas fa-laptop-code"></i> Web Technologies</h4>
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>HTML/CSS</span>
+                <span>95%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>React.js</span>
+                <span>82%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 82%"></div>
+              </div>
+            </div>
+
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>Node.js</span>
+                <span>78%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 78%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-skill-category">
+            <h4><i class="fas fa-database"></i> Core Competencies</h4>
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>Problem Solving</span>
+                <span>94%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 94%"></div>
+              </div>
+            </div>
+
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>Data Structures</span>
+                <span>90%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">
+                <span>OOP</span>
+                <span>88%</span>
+              </div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="cv-section-title">Professional Experience</h3>
+
+      <div class="cv-timeline">
+        <div class="cv-timeline-item">
+          <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2022 - 2023</div>
+          <div class="cv-timeline-title">Practice at General Hospital Borka Taleski - Prilep</div>
+          <div class="cv-timeline-desc">
+            • Learned basic's of patient's healthcare <br>
+            • Worked on patient record management system <br>
+            • Learned medical terminology <br>
+          </div>
+<!--        </div>-->
+<!--        <div class="cv-timeline">-->
+<!--          <div class="cv-timeline-item">-->
+<!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jun 2023 - Present</div>-->
+<!--            <div class="cv-timeline-title">Junior Web Developer - TechInnovate MK</div>-->
+<!--            <div class="cv-timeline-desc">-->
+<!--              • Developed responsive web applications using React.js and Node.js<br>-->
+<!--              • Implemented RESTful APIs for data exchange between frontend and backend<br>-->
+<!--              • Optimized website performance resulting in 40% faster load times<br>-->
+<!--              • Collaborated with UX designers to implement user-friendly interfaces-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="cv-timeline-item">-->
+<!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jan 2023 - May 2023</div>-->
+<!--            <div class="cv-timeline-title">IT Intern - Digital Solutions MK</div>-->
+<!--            <div class="cv-timeline-desc">-->
+<!--              • Assisted in development and maintenance of company websites<br>-->
+<!--              • Performed debugging and troubleshooting for existing applications<br>-->
+<!--              • Participated in agile development processes and team meetings<br>-->
+<!--              • Created technical documentation for internal processes-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <h3 class="cv-section-title">Certifications</h3>-->
+
+<!--        <div class="cv-timeline">-->
+<!--          <div class="cv-timeline-item">-->
+<!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Aug 2023</div>-->
+<!--            <div class="cv-timeline-title">AWS Certified Cloud Practitioner</div>-->
+<!--            <div class="cv-timeline-desc">-->
+<!--              Amazon Web Services - Validation of cloud fluency and foundational AWS knowledge-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="cv-timeline-item">-->
+<!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Mar 2023</div>-->
+<!--            <div class="cv-timeline-title">Google Professional Data Analytics Certificate</div>-->
+<!--            <div class="cv-timeline-desc">-->
+<!--              Skills in data cleaning, analysis, visualization and tools including spreadsheets, SQL, R programming, and Tableau-->
+<!--            </div>-->
+<!--          </div>-->
+        </div>
+
+        <div class="cv-actions">
+          <button class="btn" onclick="window.print()">
+            <i class="fas fa-print"></i> Print CV
+          </button>
+          <a href="#contact" class="btn">
+            <i class="fas fa-paper-plane"></i> Contact Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="cv-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>My <span>Projects</span></h2>
+      <p>Check out some of my recent work</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card hidden">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project">
+        </div>
+        <div class="project-content">
+          <h3>E-Commerce Platform</h3>
+          <p>Full-featured e-commerce solution with product management, cart functionality, and secure payment processing.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Stripe API</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="button-28"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="button-28"><i class="fas fa-external-link-alt"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card hidden">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project">
+        </div>
+        <div class="project-content">
+          <h3>Task Management System</h3>
+          <p>Collaborative task management application with real-time updates, team features, and analytics dashboard.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Vue.js</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">WebSockets</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="button-28"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="button-28"><i class="fas fa-external-link-alt"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card hidden">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project">
+        </div>
+        <div class="project-content">
+          <h3>Health Data Analytics</h3>
+          <p>Platform for visualizing and analyzing health data with predictive modeling capabilities.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">D3.js</span>
+            <span class="tech-tag">Machine Learning</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="button-28"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="button-28"><i class="fas fa-external-link-alt"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Контакт Секција -->
+<!-- Контакт Секција -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Контактирај <span>Ме</span></h2>
+      <p>Испрати ми порака</p>
+    </div>
+
+    <div class="contact-form hidden">
+      <form id="contactForm">
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder="Твоето Име" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Твојот Е-маил" required>
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" placeholder="Твојата Порака" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">
+          <i class="fas fa-paper-plane"></i> Испрати Порака
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('a[href="#skills"]').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.querySelector('#skills').scrollIntoView({ behavior: 'smooth' });
+  emailjs.init("uACwIgUdKctKAHk1K");
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Генерираме тековно време во формат YYYY-MM-DD HH:mm:ss
+    const now = new Date();
+    const time = now.getFullYear() + '-' +
+            String(now.getMonth() + 1).padStart(2, '0') + '-' +
+            String(now.getDate()).padStart(2, '0') + ' ' +
+            String(now.getHours()).padStart(2, '0') + ':' +
+            String(now.getMinutes()).padStart(2, '0') + ':' +
+            String(now.getSeconds()).padStart(2, '0');
+
+    // Испрати до тебе (owner) со деталите
+    emailjs.send("service_1o217ia", "template_qjyly8q", {
+      from_name: name,
+      from_email: email,
+      message: message,
+      time: time
+    }).then(function(response) {
+      console.log("Известување испратено до тебе.");
+    }, function(error) {
+      console.error("Грешка при праќање до тебе:", error);
+    });
+
+    // Испрати авто-одговор до клиентот
+    emailjs.send("service_1o217ia", "template_fb7ajit", {
+      to_name: name,
+      to_email: email
+    }).then(function(response) {
+      alert('Пораката е успешно испратена!');
+      document.getElementById('contactForm').reset();
+    }, function(error) {
+      alert('Грешка при auto-reply: ' + JSON.stringify(error));
     });
   });
 </script>
 
+<script>
+  // Typewriter Effect
+  document.addEventListener("DOMContentLoaded", function() {
+    const text = "<code> We Live in a Technology Renaissance: Ignite Your Passion for Innovation </code>\n";
+    const element = document.getElementById("typewriter-text");
+    let index = 0;
+    let currentLine = '';
+    let lineCount = 0;
+    const maxLines = 3;
+
+    function typeWriter() {
+      if (index < text.length) {
+        const char = text.charAt(index);
+        currentLine += char;
+
+        // Create a new line if current line is too long
+        if (currentLine.length > 80 && char === ' ') {
+          element.innerHTML += '<br>';
+          currentLine = '';
+          lineCount++;
+        } else {
+          element.innerHTML += char;
+        }
+
+        index++;
+
+        // Stop after maxLines
+        if (lineCount < maxLines) {
+          setTimeout(typeWriter, 30);
+        }
+      }
+    }
+
+    setTimeout(typeWriter, 500);
+
+    // Create particles
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+
+      // Random size between 1px and 3px
+      const size = Math.random() * 2 + 1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+
+      // Random position
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+
+      // Random animation duration
+      const duration = Math.random() * 20 + 10;
+      particle.style.animationDuration = `${duration}s`;
+
+      // Random delay
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+
+      particlesContainer.appendChild(particle);
+    }
+
+    // Animate skill bars when in view
+    const skillBars = document.querySelectorAll('.cv-skill-progress');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const width = entry.target.style.width;
+          entry.target.style.width = '0';
+          setTimeout(() => {
+            entry.target.style.width = width;
+          }, 300);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    skillBars.forEach(bar => {
+      observer.observe(bar);
+    });
+
+    // Scroll animation for sections
+    const hiddenElements = document.querySelectorAll('.hidden');
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    hiddenElements.forEach(el => {
+      scrollObserver.observe(el);
+    });
+  });
+
+  // Smooth scrolling for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  // Додади ова во твојот JavaScript
+  const floatingContainer = document.getElementById('floatingElements');
+  const elementCount = 30;
+
+  for (let i = 0; i < elementCount; i++) {
+    const element = document.createElement('div');
+    element.classList.add('floating-element');
+
+    // Случајна големина (5-30px)
+    const size = Math.random() * 25 + 5;
+    element.style.width = `${size}px`;
+    element.style.height = `${size}px`;
+
+    // Случајна боја
+    const colors = [
+      'rgba(227, 104, 88, 0.4)',   // Primary
+      'rgba(70, 130, 169, 0.4)',   // Secondary
+      'rgba(182, 169, 111, 0.4)',  // Accent
+      'rgba(255, 255, 255, 0.3)'   // White
+    ];
+    element.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+    // Случајна почетна позиција
+    element.style.left = `${Math.random() * 100}%`;
+    element.style.top = `${Math.random() * 100}%`;
+
+    // Случајна брзина
+    const duration = Math.random() * 20 + 10;
+    element.style.animationDuration = `${duration}s`;
+
+    floatingContainer.appendChild(element);
+  }
+  // Контакт Форма
+  const contactForm = document.getElementById('contactForm');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Собери ги податоците
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
+
+      // Тука би требало да се додаде код за испраќање на податоците
+      // На пример, користење на EmailJS, Formspree или бекенд
+
+      // Привремено решение: прикажи порака за успех
+      alert('Пораката е успешно испратена! Ќе ве контактирам наскоро.');
+
+      // Ресетирај ја формата
+      contactForm.reset();
+    });
+  }
+
+
+</script>
 </body>
 </html>
