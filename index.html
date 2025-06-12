@@ -316,6 +316,12 @@
       font-size: 1.3rem;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
+    @media (max-width: 768px) {
+  .hero-content {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
 
     .social-links a:hover {
       transform: translateY(-5px);
@@ -809,7 +815,6 @@
       gap: 1rem;
     }
 
-    /* Floating Elements */
     .floating {
       position: absolute;
       z-index: -1;
@@ -885,9 +890,11 @@
         max-width: 60%;
       }
 
-      .hero-image {
-        width: 50%;
-      }
+     .hero-image {
+  max-width: 100%;
+  right: 2%;
+}
+
 
       .about-container {
         flex-direction: column;
