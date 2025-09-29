@@ -97,7 +97,41 @@
             letter-spacing: 1px;
             display: flex;
             align-items: center;
+            animation: logoPulse 15s infinite ease-in-out;
+
         }
+
+        @keyframes logoPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2); /* го зголемува логото за 20% */
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .logo i {
+            animation: iconPulse 6s infinite ease-in-out;
+        }
+
+        .logo span {
+            animation: spanPulse 6s infinite ease-in-out;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3) rotate(10deg); }
+        }
+
+        @keyframes spanPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2) translateY(-5px); }
+        }
+
+
 
         .logo span {
             color: var(--light);
@@ -249,10 +283,10 @@
         .hero-image {
             position: absolute;
             right: 2%;
-            top: 50%;
+            top: 60%;
             transform: translateY(-50%);
             width: 40%;
-            max-width: 500px;
+            max-width: 700px;
             z-index: 1;
             border-radius: 20px;
             overflow: hidden;
@@ -339,7 +373,7 @@
             min-width: 300px;
             background: rgba(25, 25, 25, 0.7);
             padding: 3rem;
-            border-radius: 20px;
+            border-radius: 20px 70px 20px 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -940,15 +974,56 @@
                 font-size: 1.8rem;
             }
         }
+
+        .about-image img {
+            animation: pulse 7s ease-in-out 1 forwards;
+            transform-origin: center;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1) rotate(5deg);
+                border-radius: 30% 50% 20% 60%;
+            }
+            50% {
+                transform: scale(1.15) rotate(-5deg);
+                border-radius: 80% 50% 90% 60%;
+            }
+            75% {
+                transform: scale(1.1) rotate(3deg);
+                border-radius: 20% 60% 40% 70%;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .logo-arrow {
+            margin-left: 10px;
+            color: #333;
+            font-size: 1rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .logo-arrow:hover {
+            transform: translateY(-5px);
+            color: #0077ff;
+        }
+
+
+
     </style>
 </head>
 <body>
 <!-- Particles -->
 <div class="particles" id="particles"></div>
 
-<!-- Navigation -->
+<!-- nav bar -->
 <nav>
-    <h1 class="logo"><i class="fas fa-terminal"></i>Portfo<span>lio</span></h1>
+    <h1 class="logo"><i class="fas fa-terminal"></i>Portfo<span>lio</span><a href="#heroo" class="logo-arrow"><i class="fas fa-arrow-up"></i></a></h1 >
     <div class="nav-links">
         <a href="#typewriter-text">Home</a>
         <a href="#about">About</a>
@@ -958,8 +1033,8 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero">
+<!-- nasloven del -->
+<section class="hero" id="heroo">
     <div class="container">
         <div class="hero-content animate">
             <h4>Hello, my name is</h4>
@@ -976,14 +1051,12 @@
     </div>
 
     <div class="social-links">
-        <a href="https://www.linkedin.com/in/stefan-vezenkoski-226551287/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/stefanvezenkoski"><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/stefanvezenkoski/"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/stefan-vezenkoski-226551287/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/stefanvezenkoski" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/stefanvezenkoski/" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
 </section>
 
-<!-- About Section -->
 <section id="about" class="about">
     <div class="container">
         <div class="section-header">
@@ -993,43 +1066,26 @@
 
         <div class="about-container">
             <div class="about-image hidden">
-                <img src="slika1.jpg">
+                <img style="" src="pic (3).jpg">
             </div>
 
             <div class="about-content hidden">
                 <p>
-                    Hello! I'm a 21-year-old Computer Science and Engineering student at FCSE – Skopje, currently in my
-                    final year. Originally from Prilep, Macedonia, my journey started at Gjorce Petrov Medical High
-                    School, where I gained in-depth knowledge of medical terminology and hands-on experience working as
-                    a medical technician. This unique combination of medical background and passion for technology now
-                    shapes my ambition to contribute meaningfully at the intersection of healthcare and data.
-                </p>
-                <p>
-                    As I approach the end of my studies, my academic commitments have significantly decreased, giving me
-                    the flexibility and availability to engage in full-time professional opportunities. I'm especially
-                    enthusiastic about roles that combine data operations and healthcare—fields where I feel I can make
-                    the most impact.
-                </p>
-                <p>
-                    In addition to my academic and medical experience, I’ve also worked during the summers as a waiter
-                    and supermarket assistant. These roles helped me build strong interpersonal skills, attention to
-                    detail, and a solid work ethic—all of which I carry into any professional setting.
-                </p>
-                <p>
-                    I’ve recently been introduced to Veeva through several acquaintances who shared their positive
-                    experiences. One of them kindly connected me with Sasha, Manager of Data Operations Quality Control
-                    at OpenData Europe, which further sparked my interest in joining Veeva's mission to improve global
-                    healthcare through technology and data.
-                </p>
-                <p>
-                    Driven, adaptable, and genuinely curious, I’m eager to join a team where I can grow, contribute, and continuously learn. I see Veeva as the perfect environment to do exactly that.
-                </p>
+                    Hi! Thanks for stopping by! I’m Stefan Vezenkoski, 21 years old, currently a third-year student at the Faculty of Computer Science and Engineering (FINKI) at Ss. Cyril and Methodius University in Skopje (UKIM)
+                    . I completed my secondary education at Medical High School "Gjorce Petrov" in Prilep with a GPA of 5.00, and then decided to explore a completely different field by enrolling at FINKI.</p>
+
+                <p>   It was challenging at first, but with enthusiasm, persistence, and a strong desire to learn, I’ve reached this point and continue to progress with determination. I’m a driven individual who loves learning new things every day and constantly improving myself to be better than yesterday.</p>
+
+                <p>   Alongside my studies, I currently work as a Data Steward at Veeva Systems, where I gain experience in remote work and collaboration with a global team. This role has helped me develop teamwork skills, responsibility, adaptability, and the ability to learn and grow in a professional environment.</p>
+
+                <p>   That’s a brief introduction about me!</p>
+
             </div>
         </div>
     </div>
 </section>
 
-<!-- Professional CV Section -->
+<!-- cv sekcija -->
 <section id="cv" class="cv-section">
     <div class="container">
         <div class="section-header">
@@ -1040,7 +1096,7 @@
         <div class="cv-display hidden">
             <div class="cv-header-card">
                 <h1>Stefan Vezenkoski</h1>
-                <h3>Computer Science & Engineering Student | Medical High School Graduate</h3>
+                <h3>Computer Science & Engineering Student | Data Steward at Veeva Systems | Medical High School Graduate</h3>
             </div>
 
             <div class="cv-content">
@@ -1100,23 +1156,38 @@
 
             <div class="cv-timeline">
                 <div class="cv-timeline-item">
-                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2023 - Present</div>
-                    <div class="cv-timeline-title">Faculty of Computer Science and Engineering (FCSE), Skopje</div>
+                    <div class="cv-timeline-date">
+                        <i class="fas fa-calendar-alt"></i> 2023 – Present
+                    </div>
+                    <div class="cv-timeline-title">
+                        Faculty of Computer Science and Engineering (FCSE), Skopje
+                    </div>
                     <div class="cv-timeline-desc">
-                        Bachelor of Computer Science and Engineering<br>
-                        Microsoft package, OpenOffice package, C++, JS, C#, .NET Web Forms, .NET MVC, Unix, Linux, Git, GitHub, Linux, Docker, HTML,
-                        CSS...
+                        <p>Bachelor of Computer Science and Engineering</p>
+                        </br>
+                        <ul>
+                            <li>Programming: Java, JavaScript, C++, C#</li>
+                            <li>Frameworks: .NET Web Forms, .NET MVC</li>
+                            <li>Web Development: HTML, CSS</li>
+                            <li>Tools & Platforms: Git, GitHub, Docker, Unix/Linux</li>
+                            <li>Productivity: Microsoft Office, OpenOffice</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="cv-timeline-item">
-                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2019 - 2023</div>
-                    <div class="cv-timeline-title">Medical High School "Gjorce Petrov", Prilep</div>
+                    <div class="cv-timeline-date">
+                        <i class="fas fa-calendar-alt"></i> 2019 – 2023
+                    </div>
+                    <div class="cv-timeline-title">
+                        Medical High School "Gjorce Petrov", Prilep
+                    </div>
                     <div class="cv-timeline-desc">
                         Graduated with honors (GPA: 5.0)
                     </div>
                 </div>
             </div>
+
 
             <h3 class="cv-section-title">Technical Skills</h3>
 
@@ -1224,6 +1295,18 @@
             <h3 class="cv-section-title">Professional Experience</h3>
 
             <div class="cv-timeline">
+
+            <div class="cv-timeline-item">
+                <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jul 2025 - Present</div>
+                <div class="cv-timeline-title">Data Steward | Data & Web Researcher</div>
+                <div class="cv-timeline-desc">
+                    • collaborating with a global team and gaining experience in organization, attention to detail, and responsibility through research on healthcare organizations in the Netherlands.
+                </div>
+            </div>
+            </div>
+
+
+            <div class="cv-timeline">
                 <div class="cv-timeline-item">
                     <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2022 - 2023</div>
                     <div class="cv-timeline-title">Practice at General Hospital Borka Taleski - Prilep</div>
@@ -1232,84 +1315,24 @@
                         • Worked on patient record management system <br>
                         • Learned medical terminology <br>
                     </div>
-
-                    <!--        </div>-->
-                    <!--        <div class="cv-timeline">-->
-                    <!--          <div class="cv-timeline-item">-->
-                    <!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jun 2023 - Present</div>-->
-                    <!--            <div class="cv-timeline-title">Junior Web Developer - TechInnovate MK</div>-->
-                    <!--            <div class="cv-timeline-desc">-->
-                    <!--              • Developed responsive web applications using React.js and Node.js<br>-->
-                    <!--              • Implemented RESTful APIs for data exchange between frontend and backend<br>-->
-                    <!--              • Optimized website performance resulting in 40% faster load times<br>-->
-                    <!--              • Collaborated with UX designers to implement user-friendly interfaces-->
-                    <!--            </div>-->
-                    <!--          </div>-->
-
-                    <!--          <div class="cv-timeline-item">-->
-                    <!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jan 2023 - May 2023</div>-->
-                    <!--            <div class="cv-timeline-title">IT Intern - Digital Solutions MK</div>-->
-                    <!--            <div class="cv-timeline-desc">-->
-                    <!--              • Assisted in development and maintenance of company websites<br>-->
-                    <!--              • Performed debugging and troubleshooting for existing applications<br>-->
-                    <!--              • Participated in agile development processes and team meetings<br>-->
-                    <!--              • Created technical documentation for internal processes-->
-                    <!--            </div>-->
-                    <!--          </div>-->
-                    <!--        </div>-->
-
-                    <!--        <h3 class="cv-section-title">Certifications</h3>-->
-
-                    <!--        <div class="cv-timeline">-->
-                    <!--          <div class="cv-timeline-item">-->
-                    <!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Aug 2023</div>-->
-                    <!--            <div class="cv-timeline-title">AWS Certified Cloud Practitioner</div>-->
-                    <!--            <div class="cv-timeline-desc">-->
-                    <!--              Amazon Web Services - Validation of cloud fluency and foundational AWS knowledge-->
-                    <!--            </div>-->
-                    <!--          </div>-->
-
-                    <!--          <div class="cv-timeline-item">-->
-                    <!--            <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Mar 2023</div>-->
-                    <!--            <div class="cv-timeline-title">Google Professional Data Analytics Certificate</div>-->
-                    <!--            <div class="cv-timeline-desc">-->
-                    <!--              Skills in data cleaning, analysis, visualization and tools including spreadsheets, SQL, R programming, and Tableau-->
-                    <!--            </div>-->
-                    <!--          </div>-->
-                </div>
-                <div class="cv-timeline-item">
-                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jun 2022 - Sep 2022</div>
-                    <div class="cv-timeline-title">Supermarket assistant</div>
-                    <div class="cv-timeline-desc">
-                        • Provided assistance to customers and handled product inquiries <br>
-                        • Collaborated with team members to restock and organize shelves <br>
-                        • Strengthened communication and organizational skills <br>
-                    </div>
-
-
-
-                </div>
-                <div class="cv-timeline-item">
-                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i>Jul 2021 - Sep 2021 <br>Jun 2023-Sep 2023</div>
-                    <div class="cv-timeline-title">Waiter</div>
-                    <div class="cv-timeline-desc">
-                        • Developed multitasking, time management, communication and teamwork skills <br>
-                    </div>
-                    <div class="cv-actions">
-                        <button class="btn" onclick="window.print()">
-                            <i class="fas fa-print"></i> Print CV
-                        </button>
-                        <a href="#contact" class="btn">
-                            <i class="fas fa-paper-plane"></i> Contact Me
-                        </a>
-                    </div>
                 </div>
 
         </div>
-    </div>
-</section>
 
-<!-- Projects Section -->
+
+    </div>
+
+
+</section>
+<div class="cv-actions">
+    <button class="btn" onclick="window.print()">
+        <i class="fas fa-print"></i> Print CV
+    </button>
+    <a href="#contact" class="btn">
+        <i class="fas fa-paper-plane"></i> Contact Me
+    </a>
+</div>
+<!-- proekti sekcija  -->
 <section id="projects" class="cv-section">
     <div class="container">
         <div class="section-header">
@@ -1410,8 +1433,7 @@
     </div>
 </section>
 
-<!-- Контакт Секција -->
-<!-- Контакт Секција -->
+<!-- kontakt sekcija -->
 <section id="contact" class="contact-section">
     <div class="container">
         <div class="section-header">
@@ -1438,6 +1460,10 @@
         </div>
     </div>
 </section>
+
+<footer style="color: white; margin: 10px;                        font-family: 'Josefin Sans', sans-serif;">
+    © 2025 Stefan Vezenkoski. All rights reserved.
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
