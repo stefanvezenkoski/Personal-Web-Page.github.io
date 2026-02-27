@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #E36858;
+            --primary: #29c417;
             --secondary: #4682A9;
             --accent: #b6a96f;
             --dark: #252209;
@@ -15,7 +15,7 @@
             --white: #ffffff;
             --gray-light: #f8f9fa;
             --gray-medium: #e9ecef;
-            --black: #0d0d0d;
+            --black: rgba(96, 133, 76, 0.3);
         }
 
         /* Reset и основни стилови */
@@ -31,7 +31,7 @@
         }
 
         body {
-            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Courier New', monospace;
             line-height: 1.6;
             color: #333;
             background-color: var(--black);
@@ -176,7 +176,7 @@
         nav a:hover {
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(227, 104, 88, 0.3);
+            box-shadow: 0 5px 15px rgb(103, 174, 29);
         }
 
         nav a:hover::before {
@@ -184,13 +184,13 @@
         }
 
         .btn {
-            background: linear-gradient(135deg, var(--primary), #d15a4a);
+            background: linear-gradient(135deg, var(--primary), #56832a);
             color: white;
             padding: 0.7rem 1.8rem;
             border-radius: 50px;
             transition: all 0.4s ease;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(227, 104, 88, 0.3);
+            box-shadow: 0 4px 15px rgba(96, 133, 76, 0.3);
             border: none;
             cursor: pointer;
             position: relative;
@@ -213,14 +213,13 @@
 
         .btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(227, 104, 88, 0.5);
+            box-shadow: 0 8px 25px rgb(86, 131, 42);
         }
 
         .btn:hover::before {
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -303,7 +302,6 @@
             transition: transform 0.5s ease;
         }
 
-        /* Social Links */
         .social-links {
             position: fixed;
             left: 1rem;
@@ -803,7 +801,7 @@
             border-radius: 10px;
             background: rgba(30, 30, 30, 0.7);
             color: var(--light);
-            font-family: 'Josefin Sans', sans-serif;
+            font-family: "Brush Script MT", cursive;
             font-size: 1rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
@@ -1013,6 +1011,14 @@
             color: #0077ff;
         }
 
+        footer{
+            font-family: Copperplate, Papyrus, fantasy;
+
+            padding-top:20px;
+            padding-bottom: 20px;
+            text-align: center;
+            font-size: 1.0rem;
+        }
 
 
     </style>
@@ -1050,7 +1056,7 @@
         </div>
 
         <div class="hero-image">
-            <img style="height: 1000px; width: auto;" src="ec63144b-4269-4e10-82e9-b86030582a9d.jpeg"
+            <img style="height: 1000px; width: auto;" src="public/ec63144b-4269-4e10-82e9-b86030582a9d.jpeg"
                  alt="Stefan Vezenkoski">
         </div>
     </div>
@@ -1071,7 +1077,7 @@
 
         <div class="about-container">
             <div class="about-image hidden">
-                <img style="" src="pic (3).jpg">
+                <img style="" src="public/pic%20(3).jpg">
             </div>
 
             <div class="about-content hidden">
@@ -1348,7 +1354,7 @@
         <div class="projects-grid">
             <div class="project-card hidden">
                 <div class="project-image">
-                    <img src="8-Septermvri-opsta-slika-11.jpg" alt="Project">
+                    <img src="public/8-Septermvri-opsta-slika-11.jpg" alt="Project">
                 </div>
                 <div class="project-content">
                     <h3>Modern Web Presence for PHI '8th September' Hospital – Skopje</h3>
@@ -1367,7 +1373,7 @@
 
             <div class="project-card hidden">
                 <div class="project-image">
-                    <img src="img_3.png"
+                    <img src="public/img_3.png"
                          alt="Project">
                 </div>
                 <div class="project-content">
@@ -1385,7 +1391,7 @@
             </div>
             <div class="project-card hidden">
                 <div class="project-image">
-                    <img src="img.png"
+                    <img src="public/img.png"
                          alt="Project">
                 </div>
                 <div class="project-content">
@@ -1409,7 +1415,7 @@
             </div>
             <div class="project-card hidden">
                 <div class="project-image">
-                    <img src="img_2.png"
+                    <img src="public/img_2.png"
                          alt="Project">
                 </div>
                 <div class="project-content">
@@ -1465,7 +1471,7 @@
     </div>
 </section>
 
-<footer style="color: white; margin: 10px; font-family: 'Josefin Sans', sans-serif;">
+<footer style="color: white; margin: 10px; ">
     © 2025 Stefan Vezenkoski. All rights reserved.</p>
 
 </footer>
