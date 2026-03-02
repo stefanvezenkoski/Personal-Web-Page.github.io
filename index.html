@@ -40,7 +40,6 @@
             linear-gradient(to bottom, var(--black), #1a1a1a);
         }
 
-        /* Fluid typography */
         html {
             font-size: clamp(14px, 1.5vw, 16px);
         }
@@ -122,15 +121,22 @@
         }
 
         @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3) rotate(10deg); }
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3) rotate(10deg);
+            }
         }
 
         @keyframes spanPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2) translateY(-5px); }
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2) translateY(-5px);
+            }
         }
-
 
 
         .logo span {
@@ -1011,25 +1017,272 @@
             color: #0077ff;
         }
 
-        footer{
+        footer {
             font-family: Copperplate, Papyrus, fantasy;
 
-            padding-top:20px;
+            padding-top: 20px;
             padding-bottom: 20px;
             text-align: center;
             font-size: 1.0rem;
         }
 
 
+        /* Modern Gallery Styles */
+        .gallery-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 30px 0;
+        }
+
+        /* Градиентни рабови за ефект на исчезнување */
+        .gallery-container::before,
+        .gallery-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .gallery-container::before {
+            left: 0;
+            background: linear-gradient(to right, #f5f5f5 0%, transparent 100%);
+        }
+
+        .gallery-container::after {
+            right: 0;
+            background: linear-gradient(to left, #f5f5f5 0%, transparent 100%);
+        }
+
+        .gallery-track {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            animation: scroll 60s linear infinite;
+            width: fit-content;
+            padding: 20px 30px;
+            background: linear-gradient(145deg, #849373 0%, #9bae87 100%);
+            border-radius: 30px;
+            box-shadow:
+                    0 20px 40px rgba(0, 0, 0, 0.15),
+                    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+                    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gallery-item {
+            flex-shrink: 0;
+            width: 280px;
+            height: 380px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 25px 15px 25px 15px;
+            box-shadow:
+                    0 10px 20px rgba(0, 0, 0, 0.2),
+                    0 0 0 2px rgba(255, 255, 255, 0.3) inset;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow:
+                    0 30px 40px rgba(0, 0, 0, 0.3),
+                    0 0 0 4px rgba(255, 255, 255, 0.5) inset,
+                    0 0 30px rgba(255, 215, 0, 0.3);
+            z-index: 10;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 20px 10px 20px 10px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px 15px 25px 15px;
+            filter: grayscale(20%) brightness(0.95);
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%) brightness(1.1);
+            transform: scale(1.02);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .gallery-track:hover {
+            animation-play-state: paused;
+        }
+
+        .gallery-item:nth-child(odd) img {
+            border-radius: 30px 10px 30px 10px;
+        }
+
+        .gallery-item:nth-child(even) img {
+            border-radius: 10px 30px 10px 30px;
+        }
+
+        .gallery-item:nth-child(3n) img {
+            border-radius: 40px 5px 40px 5px;
+        }
+
+        .gallery-item::after {
+            content: '📷';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: 220px;
+                height: 300px;
+            }
+
+            .gallery-track {
+                gap: 20px;
+            }
+
+            .gallery-container::before,
+            .gallery-container::after {
+                width: 80px;
+            }
+        }
+
+        .gallery-track {
+            background-image:
+                    linear-gradient(145deg, #849373 0%, #9bae87 100%),
+                    repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 2px, transparent 2px, transparent 8px);
+            background-blend-mode: overlay;
+        }
+
+        .gallery-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 40px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(1deg);
+        }
+
+
+
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgb(84, 248, 0);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float linear infinite;
+            box-shadow: 0 0 10px rgba(41, 196, 23, 0.3);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        #canvas-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, rgb(132, 147, 115) 0%, rgb(41, 196, 23) 100%);
+        }
+
+
     </style>
 </head>
 <body>
-<!-- Particles -->
+<canvas id="canvas-background"></canvas>
 <div class="particles" id="particles"></div>
 
-<!-- nav bar -->
 <nav>
-    <h1 class="logo"><i class="fas fa-terminal"></i>Portfo<span>lio</span><a href="#heroo" class="logo-arrow"><i class="fas fa-arrow-up"></i></a></h1 >
+    <h1 class="logo"><i class="fas fa-terminal"></i>Portfo<span>lio</span><a href="#heroo" class="logo-arrow"><i
+            class="fas fa-arrow-up"></i></a></h1>
     <div class="nav-links">
         <a href="#typewriter-text">Home</a>
         <a href="#about">About</a>
@@ -1051,7 +1304,7 @@
             </br>
             </br>
 
-            <p style="font-size: 0.9rem; color:gray; font-style: italic;">Updated on: 04.06.2025</p>
+            <p style="font-size: 0.9rem; color:gray; font-style: italic;">Updated on: 2026-03-02</p>
 
         </div>
 
@@ -1062,7 +1315,8 @@
     </div>
 
     <div class="social-links">
-        <a href="https://www.linkedin.com/in/stefan-vezenkoski-226551287/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/stefan-vezenkoski-226551287/" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/stefanvezenkoski" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.instagram.com/stefanvezenkoski/" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
@@ -1072,7 +1326,7 @@
     <div class="container">
         <div class="section-header">
             <h2>About <span>Me</span></h2>
-            <p>Get to know me better</p>
+            <p style="color:black">Get to know me better</p>
         </div>
 
         <div class="about-container">
@@ -1082,18 +1336,123 @@
 
             <div class="about-content hidden">
                 <p>
-                    Hi! Thanks for stopping by! I’m Stefan Vezenkoski, 21 years old, currently a third-year student at the Faculty of Computer Science and Engineering (FINKI) at Ss. Cyril and Methodius University in Skopje (UKIM)
-                    . I completed my secondary education at Medical High School "Gjorce Petrov" in Prilep with a GPA of 5.00, and then decided to explore a completely different field by enrolling at FINKI.</p>
+                    Hi! Thanks for stopping by! I’m Stefan Vezenkoski, 21 years old, currently a third-year student at
+                    the Faculty of Computer Science and Engineering (FINKI) at Ss. Cyril and Methodius University in
+                    Skopje (UKIM)
+                    . I completed my secondary education at Medical High School "Gjorce Petrov" in Prilep with a GPA of
+                    5.00, and then decided to explore a completely different field by enrolling at FINKI.</p>
 
-                <p>   It was challenging at first, but with enthusiasm, persistence, and a strong desire to learn, I’ve reached this point and continue to progress with determination. I’m a driven individual who loves learning new things every day and constantly improving myself to be better than yesterday.</p>
+                <p> It was challenging at first, but with enthusiasm, persistence, and a strong desire to learn, I’ve
+                    reached this point and continue to progress with determination. I’m a driven individual who loves
+                    learning new things every day and constantly improving myself to be better than yesterday.</p>
 
-                <p>During the summer of 2025, I worked as a Data Steward at Veeva Systems, where I gained experience in remote work and collaboration with a global team. This role helped me develop teamwork skills, responsibility, adaptability, and the ability to learn and grow in a professional environment.</p>
+                <p>During the summer of 2025, I worked as a Data Steward at Veeva Systems, where I gained experience in
+                    remote work and collaboration with a global team. This role helped me develop teamwork skills,
+                    responsibility, adaptability, and the ability to learn and grow in a professional environment.</p>
 
-                <p>   That’s a brief introduction about me!</p>
+                <p> That’s a brief introduction about me!</p>
 
             </div>
+
+            <div>
+                <p>I enjoy taking portrait photos with my iPhone. Photography allows me to capture emotions and unique moments. Here are some of my favourite shots: </p>
+                <div class="gallery-container">
+                    <div class="gallery-track">
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_8023.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_2456.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_8258.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_4482.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_9516.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6168.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_7210.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_4377.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_8081.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6903.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_8257.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_7721.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6516.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_7802.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_4454.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6168.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_9253.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6514.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6742.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_8018.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6515.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_5074.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6168.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_7207.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_9024.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_7968.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_8284.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_6514.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_7972.jpeg" alt="Portrait 3">
+                        </a>
+                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                            <img src="public/IMG_5206.jpeg" alt="Portrait 3">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
-    </div>
 </section>
 
 <!-- cv sekcija -->
@@ -1101,7 +1460,7 @@
     <div class="container">
         <div class="section-header">
             <h2>Professional <span>CV</span></h2>
-            <p>My qualifications and experience</p>
+            <p style="color:black">My qualifications and experience</p>
         </div>
 
         <div class="cv-display hidden">
@@ -1307,13 +1666,14 @@
 
             <div class="cv-timeline">
 
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jul 2025 - Oct 2025</div>
-                <div class="cv-timeline-title">Data Steward | Data & Web Researcher</div>
-                <div class="cv-timeline-desc">
-                    • Collaborated with a global team and gained experience in organization, attention to detail, and responsibility through research on healthcare organizations in the Netherlands.
+                <div class="cv-timeline-item">
+                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jul 2025 - Oct 2025</div>
+                    <div class="cv-timeline-title">Data Steward | Data & Web Researcher</div>
+                    <div class="cv-timeline-desc">
+                        • Collaborated with a global team and gained experience in organization, attention to detail,
+                        and responsibility through research on healthcare organizations in the Netherlands.
+                    </div>
                 </div>
-            </div>
             </div>
 
 
@@ -1322,16 +1682,16 @@
                     <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2022 - 2023</div>
                     <div class="cv-timeline-title">Practice at General Hospital Borka Taleski - Prilep</div>
                     <div class="cv-timeline-desc">
-                        •  Learned basic's of patient's healthcare <br>
-                        •  Worked on patient record management system <br>
-                        •  Learned medical terminology <br>
+                        • Learned basic's of patient's healthcare <br>
+                        • Worked on patient record management system <br>
+                        • Learned medical terminology <br>
                     </div>
                 </div>
 
+            </div>
+
+
         </div>
-
-
-    </div>
 
 
 </section>
@@ -1348,7 +1708,7 @@
     <div class="container">
         <div class="section-header">
             <h2>My <span>Projects</span></h2>
-            <p>Check out some of my recent work</p>
+            <p style="color:black">Check out some of my recent work</p>
         </div>
 
         <div class="projects-grid">
@@ -1396,7 +1756,11 @@
                 </div>
                 <div class="project-content">
                     <h3>Statistical Analysis of Glaucoma-Related Medical Data</h3>
-                    <p>As part of a seminar paper for the course <strong>Business Statistics</strong>, I analyzed a medical dataset related to glaucoma patients, sourced from Kaggle. The dataset contains eight attributes, including age, ocular pressure, and corneal thickness. I performed descriptive and comparative statistical analysis using the <strong>R programming language</strong>, focusing on the features PSD and cornea_thickness.</p>
+                    <p>As part of a seminar paper for the course <strong>Business Statistics</strong>, I analyzed a
+                        medical dataset related to glaucoma patients, sourced from Kaggle. The dataset contains eight
+                        attributes, including age, ocular pressure, and corneal thickness. I performed descriptive and
+                        comparative statistical analysis using the <strong>R programming language</strong>, focusing on
+                        the features PSD and cornea_thickness.</p>
                     <div class="project-tech">
                         <span class="tech-tag">R programming language</span>
                         <span class="tech-tag">medical statistics</span>
@@ -1408,7 +1772,8 @@
                     <div class="project-tech">
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/stefanvezenkoski/Seminarska-Rabota-po-BS-vo-R" target="_blank" class="button-28"><i
+                        <a href="https://github.com/stefanvezenkoski/Seminarska-Rabota-po-BS-vo-R" target="_blank"
+                           class="button-28"><i
                                 class="fab fa-github"></i> View Project at GitHub</a>
                     </div>
                 </div>
@@ -1420,7 +1785,9 @@
                 </div>
                 <div class="project-content">
                     <h3>MetaFINKI</h3>
-                    <p>3D FINKI building in Blender. This project, created as part of the Digitization course, involves crafting a 3D model of the FINKI building using Blender. The aim is to produce a detailed and accura…
+                    <p>3D FINKI building in Blender. This project, created as part of the Digitization course, involves
+                        crafting a 3D model of the FINKI building using Blender. The aim is to produce a detailed and
+                        accura…
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">3D</span>
@@ -1428,15 +1795,14 @@
                         <span class="tech-tag">Course Project</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/stefanvezenkoski/MetaFINKI" target="_blank" class="button-28"><i class="fab fa-github">View GitHub Repository</i></a>
-                        <a href="https://drive.google.com/drive/folders/1an9xC-bBW2eGpACpagVCNyltI-dhCQcx" target="_blank" class="button-28"><i class="fas fa-external-link-alt">Google Drive link</i></a>
+                        <a href="https://github.com/stefanvezenkoski/MetaFINKI" target="_blank" class="button-28"><i
+                                class="fab fa-github">View GitHub Repository</i></a>
+                        <a href="https://drive.google.com/drive/folders/1an9xC-bBW2eGpACpagVCNyltI-dhCQcx"
+                           target="_blank" class="button-28"><i class="fas fa-external-link-alt">Google Drive
+                            link</i></a>
                     </div>
                 </div>
             </div>
-
-
-
-
 
 
         </div>
@@ -1471,8 +1837,8 @@
     </div>
 </section>
 
-<footer style="color: white; margin: 10px; ">
-    © 2025 Stefan Vezenkoski. All rights reserved.</p>
+<footer style="color: black; margin: 10px; ">
+    © 2026 Stefan Vezenkoski. All rights reserved.</p>
 
 </footer>
 
@@ -1487,7 +1853,6 @@
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
 
-        // Генерираме тековно време во формат YYYY-MM-DD HH:mm:ss
         const now = new Date();
         const time = now.getFullYear() + '-' +
             String(now.getMonth() + 1).padStart(2, '0') + '-' +
@@ -1496,7 +1861,6 @@
             String(now.getMinutes()).padStart(2, '0') + ':' +
             String(now.getSeconds()).padStart(2, '0');
 
-        // Испрати до тебе (owner) со деталите
         emailjs.send("service_1o217ia", "template_qjyly8q", {
             from_name: name,
             from_email: email,
@@ -1508,7 +1872,6 @@
             console.error("Грешка при праќање до тебе:", error);
         });
 
-        // Испрати авто-одговор до клиентот
         emailjs.send("service_1o217ia", "template_fb7ajit", {
             to_name: name,
             to_email: email
@@ -1522,9 +1885,30 @@
 </script>
 
 <script>
-    // Typewriter Effect
     document.addEventListener("DOMContentLoaded", function () {
-        const text = "<code> We Live in a Technology Renaissance: Ignite Your Passion for Innovation </code>\n";
+        const messages = [
+            "<daily-stefan-commit> Debugging life is hard, but every error fixed makes you stronger. Your breakthrough is just one commit away! </daily-stefan-commit>",
+            "<daily-stefan-commit> Не се откажувај! Секој код што го пишуваш те гради во програмерот што сакаш да бидеш. </daily-stefan-commit>",
+            "<daily-stefan-commit> The expert in anything was once a beginner. Keep coding! </daily-stefan-commit>",
+            "<daily-stefan-commit> Every error message is just the universe teaching you something new. Read it, learn it, conquer it! </daily-stefan-commit>",
+            "<daily-stefan-commit> Every master was once a disaster. Keep going! </daily-stefan-commit>",
+            "<daily-stefan-commit> The strongest oaks grow from tiny acorns that refused to give up. Keep growing! </daily-stefan-commit>",
+            "<daily-stefan-commit> The view from the top is beautiful, but the climb is what builds your character. Enjoy every step! </daily-stefan-commit>",
+            "<daily-stefan-commit> Transformation isn't comfortable, but neither is staying a caterpillar forever. Embrace the change! </daily-stefan-commit>",
+            "<daily-stefan-commit> The ocean is made of drops. Every small effort today adds to your ocean of success tomorrow!</daily-stefan-commit>",
+            "<daily-stefan-commit> Your future self is watching you right now through memories. Make them proud!</daily-stefan-commit>",
+            "<daily-stefan-commit>Your future self is watching you right now through memories. Make them proud!</daily-stefan-commit>",
+            "<daily-stefan-commit>The only person you need to be better than is the person you were yesterday!</daily-stefan-commit>",
+            "<daily-stefan-commit>Passion + Persistence = Unstoppable. You've got both - now prove it!</daily-stefan-commit>",
+            "<daily-stefan-commit>Every expert was once a beginner who refused to stop asking 'why?' Keep questioning, keep learning!</daily-stefan-commit>",
+            "<daily-stefan-commit>Rome wasn't built in a day, and neither is your career. Every line of code is another brick in your empire!</daily-stefan-commit>",
+            "<daily-stefan-commit>Life's plot twists aren't there to break you - they're there to make your story interesting. Keep writing!</daily-stefan-commit>",
+            "<daily-stefan-commit>The key to success doesn't exist - you have to forge it yourself with hard work and determination!</daily-stefan-commit>"
+        ];
+
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        const text = messages[randomIndex] + "\n";
+
         const element = document.getElementById("typewriter-text");
         let index = 0;
         let currentLine = '';
@@ -1536,7 +1920,6 @@
                 const char = text.charAt(index);
                 currentLine += char;
 
-                // Create a new line if current line is too long
                 if (currentLine.length > 80 && char === ' ') {
                     element.innerHTML += '<br>';
                     currentLine = '';
@@ -1547,7 +1930,28 @@
 
                 index++;
 
-                // Stop after maxLines
+                if (lineCount < maxLines) {
+                    setTimeout(typeWriter, 30);
+                }
+            }
+        }
+
+
+        function typeWriter() {
+            if (index < text.length) {
+                const char = text.charAt(index);
+                currentLine += char;
+
+                if (currentLine.length > 80 && char === ' ') {
+                    element.innerHTML += '<br>';
+                    currentLine = '';
+                    lineCount++;
+                } else {
+                    element.innerHTML += char;
+                }
+
+                index++;
+
                 if (lineCount < maxLines) {
                     setTimeout(typeWriter, 30);
                 }
@@ -1556,7 +1960,6 @@
 
         setTimeout(typeWriter, 500);
 
-        // Create particles
         const particlesContainer = document.getElementById('particles');
         const particleCount = 50;
 
@@ -1564,26 +1967,21 @@
             const particle = document.createElement('div');
             particle.classList.add('particle');
 
-            // Random size between 1px and 3px
             const size = Math.random() * 2 + 1;
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
 
-            // Random position
             particle.style.left = `${Math.random() * 100}%`;
             particle.style.top = `${Math.random() * 100}%`;
 
-            // Random animation duration
             const duration = Math.random() * 20 + 10;
             particle.style.animationDuration = `${duration}s`;
 
-            // Random delay
             particle.style.animationDelay = `${Math.random() * 5}s`;
 
             particlesContainer.appendChild(particle);
         }
 
-        // Animate skill bars when in view
         const skillBars = document.querySelectorAll('.cv-skill-progress');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1601,7 +1999,6 @@
             observer.observe(bar);
         });
 
-        // Scroll animation for sections
         const hiddenElements = document.querySelectorAll('.hidden');
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1616,7 +2013,6 @@
         });
     });
 
-    // Smooth scrolling for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -1629,7 +2025,6 @@
             }
         });
     });
-    // Додади ова во твојот JavaScript
     const floatingContainer = document.getElementById('floatingElements');
     const elementCount = 30;
 
@@ -1637,25 +2032,21 @@
         const element = document.createElement('div');
         element.classList.add('floating-element');
 
-        // Случајна големина (5-30px)
         const size = Math.random() * 25 + 5;
         element.style.width = `${size}px`;
         element.style.height = `${size}px`;
 
-        // Случајна боја
         const colors = [
-            'rgba(227, 104, 88, 0.4)',   // Primary
-            'rgba(70, 130, 169, 0.4)',   // Secondary
-            'rgba(182, 169, 111, 0.4)',  // Accent
-            'rgba(255, 255, 255, 0.3)'   // White
+            'rgba(227, 104, 88, 0.4)',
+            'rgba(70, 130, 169, 0.4)',
+            'rgba(182, 169, 111, 0.4)',
+            'rgba(255, 255, 255, 0.3)'
         ];
         element.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
-        // Случајна почетна позиција
         element.style.left = `${Math.random() * 100}%`;
         element.style.top = `${Math.random() * 100}%`;
 
-        // Случајна брзина
         const duration = Math.random() * 20 + 10;
         element.style.animationDuration = `${duration}s`;
 
@@ -1668,7 +2059,6 @@
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Собери ги податоците
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -1676,16 +2066,184 @@
                 message: document.getElementById('message').value
             };
 
-            // Тука би требало да се додаде код за испраќање на податоците
-            // На пример, користење на EmailJS, Formspree или бекенд
 
-            // Привремено решение: прикажи порака за успех
             alert('Пораката е успешно испратена! Ќе ве контактирам наскоро.');
 
-            // Ресетирај ја формата
             contactForm.reset();
         });
     }
+
+    (function() {
+        const canvas = document.getElementById('canvas-background');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let mouseX = 0;
+        let mouseY = 0;
+        let mouseRadius = 150;
+
+        const colors = [
+            'rgba(41, 196, 23, 0.8)',   // primary
+            'rgba(70, 130, 169, 0.8)',  // secondary
+            'rgba(182, 169, 111, 0.8)', // accent
+            'rgba(255, 255, 255, 0.6)'  // white
+        ];
+
+        function init() {
+            resizeCanvas();
+            createParticles(150);
+            animate();
+        }
+
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        function createParticles(count) {
+            particles = [];
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 3 + 1,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    originalX: Math.random() * width,
+                    originalY: Math.random() * height
+                });
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Цртање на линии помеѓу блиски честички
+            ctx.strokeStyle = 'rgba(41, 196, 23, 0.1)';
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(41, 196, 23, ${0.2 * (1 - distance/100)})`;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                const dx = mouseX - p.x;
+                const dy = mouseY - p.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouseRadius) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (mouseRadius - distance) / mouseRadius;
+                    p.x -= Math.cos(angle) * force * 2;
+                    p.y -= Math.sin(angle) * force * 2;
+                }
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                p.x += (p.originalX - p.x) * 0.005;
+                p.y += (p.originalY - p.y) * 0.005;
+
+                // Граници
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+                if (p.y < 0) p.y = height;
+                if (p.y > height) p.y = 0;
+
+                // Цртање
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+
+                // Додавање на сјај
+                ctx.shadowColor = p.color;
+                ctx.shadowBlur = 10;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            });
+        }
+
+        function animate() {
+            drawParticles();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            createParticles(150);
+        });
+
+        // Стартување на анимацијата
+        init();
+    })();
+
+    // Алтернатива: Ако сакате да ги користите постоечките particles
+    // Подобрете ги постоечките particles
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+        // Исчисти ги постоечките particles
+        particlesContainer.innerHTML = '';
+
+        // Направи подобри particles
+        const particleCount = 100;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            // Случајна големина
+            const size = Math.random() * 4 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            // Случајна позиција
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+
+            // Случајна боја
+            const colors = [
+                'rgba(41, 196, 23, 0.8)',
+                'rgba(70, 130, 169, 0.8)',
+                'rgba(182, 169, 111, 0.8)',
+                'rgba(255, 255, 255, 0.6)'
+            ];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+            // Анимација
+            const duration = Math.random() * 20 + 15;
+            particle.style.animation = `float ${duration}s linear infinite`;
+
+            // Случајно доцнење
+            particle.style.animationDelay = `${Math.random() * 10}s`;
+
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+
 
 
 </script>
