@@ -1,9 +1,13 @@
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stefan Vezenkoski | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.15/devicon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -18,14 +22,16 @@
             --black: rgba(96, 133, 76, 0.3);
         }
 
-        /* Reset и основни стилови */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html, body {
+        html,
+        body {
             overflow-x: hidden;
             width: 100%;
         }
@@ -73,7 +79,6 @@
             position: relative;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             align-items: center;
@@ -104,9 +109,12 @@
             0% {
                 transform: scale(1);
             }
+
             50% {
-                transform: scale(1.2); /* го зголемува логото за 20% */
+                transform: scale(1.2);
+                /* го зголемува логото за 20% */
             }
+
             100% {
                 transform: scale(1);
             }
@@ -121,18 +129,24 @@
         }
 
         @keyframes iconPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.3) rotate(10deg);
             }
         }
 
         @keyframes spanPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.2) translateY(-5px);
             }
@@ -827,7 +841,8 @@
 
         /* Floating Elements */
         .floating {
-            display: none; /* Сокриј ги floating елементите */
+            display: none;
+            /* Сокриј ги floating елементите */
         }
 
         /* Animations */
@@ -836,6 +851,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -988,18 +1004,22 @@
             0% {
                 transform: scale(1);
             }
+
             25% {
                 transform: scale(1.1) rotate(5deg);
                 border-radius: 30% 50% 20% 60%;
             }
+
             50% {
                 transform: scale(1.15) rotate(-5deg);
                 border-radius: 80% 50% 90% 60%;
             }
+
             75% {
                 transform: scale(1.1) rotate(3deg);
                 border-radius: 20% 60% 40% 70%;
             }
+
             100% {
                 transform: scale(1);
             }
@@ -1066,10 +1086,9 @@
             padding: 20px 30px;
             background: linear-gradient(145deg, #849373 0%, #9bae87 100%);
             border-radius: 30px;
-            box-shadow:
-                    0 20px 40px rgba(0, 0, 0, 0.15),
-                    inset 0 2px 4px rgba(255, 255, 255, 0.3),
-                    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -1081,17 +1100,15 @@
             position: relative;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-radius: 25px 15px 25px 15px;
-            box-shadow:
-                    0 10px 20px rgba(0, 0, 0, 0.2),
-                    0 0 0 2px rgba(255, 255, 255, 0.3) inset;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+            0 0 0 2px rgba(255, 255, 255, 0.3) inset;
         }
 
         .gallery-item:hover {
             transform: translateY(-10px) scale(1.05);
-            box-shadow:
-                    0 30px 40px rgba(0, 0, 0, 0.3),
-                    0 0 0 4px rgba(255, 255, 255, 0.5) inset,
-                    0 0 30px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3),
+            0 0 0 4px rgba(255, 255, 255, 0.5) inset,
+            0 0 30px rgba(255, 215, 0, 0.3);
             z-index: 10;
         }
 
@@ -1132,6 +1149,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -1198,9 +1216,8 @@
         }
 
         .gallery-track {
-            background-image:
-                    linear-gradient(145deg, #849373 0%, #9bae87 100%),
-                    repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 2px, transparent 2px, transparent 8px);
+            background-image: linear-gradient(145deg, #849373 0%, #9bae87 100%),
+            repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0px, rgba(255, 255, 255, 0.1) 2px, transparent 2px, transparent 8px);
             background-blend-mode: overlay;
         }
 
@@ -1222,8 +1239,6 @@
         .gallery-item:hover img {
             transform: scale(1.1) rotate(1deg);
         }
-
-
 
 
         #particles {
@@ -1251,12 +1266,15 @@
                 transform: translateY(0) translateX(0) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100vh) translateX(100px) rotate(360deg);
                 opacity: 0;
@@ -1273,15 +1291,153 @@
             background: linear-gradient(135deg, rgb(132, 147, 115) 0%, rgb(41, 196, 23) 100%);
         }
 
+        .project-card {
+            position: relative;
+        }
 
+        .pin-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #f59e0b;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            backdrop-filter: blur(4px);
+        }
+
+
+        .pin-badge i {
+            transform: rotate(45deg);
+        }
+
+
+        .tech-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-card {
+            background: rgba(25, 25, 25, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(41, 196, 23, 0.15);
+        }
+
+        /* Секција "Што учам" има сина акцент линија */
+        .tech-grid-container.is-learning .tech-card {
+            border-left-color: #9ffb93;
+        ;
+        }
+
+        .tech-grid-container.is-learning .tech-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(70, 130, 169, 0.2);
+        }
+
+        .tech-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .tech-card-header i {
+            font-size: 2rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .tech-card-header i.fa-solid {
+            color: #9ffb93;
+        }
+
+        .tech-card-name {
+            color: var(--light);
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .tech-card-badge {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #9ffb93;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-card-desc {
+            color: #888;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        /* Pulse индикатор за технологии што се учат */
+        .learning-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #9ffb93;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+
+        @keyframes pulse-dot {
+            0% {
+                box-shadow: 0 0 0 0 rgba(70, 130, 169, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(70, 130, 169, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(70, 130, 169, 0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tech-grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 0.8rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 <canvas id="canvas-background"></canvas>
 <div class="particles" id="particles"></div>
 
 <nav>
-    <h1 class="logo"><i><img style="width: 30px;height: auto; border-radius: 50%;" src="public/logo.png" alt="no_pic"></i>Portfo<span>lio</span><a href="#heroo" class="logo-arrow"><i
+    <h1 class="logo"><i><img style="width: 30px;height: auto; border-radius: 50%;" src="public/logo.png"
+                             alt="no_pic"></i>Portfo<span>lio</span><a href="#heroo" class="logo-arrow"><i
             class="fas fa-arrow-up"></i></a></h1>
     <div class="nav-links">
         <a href="#typewriter-text">Home</a>
@@ -1304,7 +1460,7 @@
             </br>
             </br>
 
-            <p style="font-size: 0.9rem; color:gray; font-style: italic;">Updated on: 2026-03-25</p>
+            <p style="font-size: 0.9rem; color:gray; font-style: italic;">Updated on: 2026-08-14</p>
 
         </div>
 
@@ -1331,128 +1487,136 @@
 
         <div class="about-container">
             <div class="about-image hidden">
-                <img style="" src="public/pic%20(3).jpg">
+                <img style="" src="public/pict.jpg">
             </div>
 
             <div class="about-content hidden">
                 <p>
-                    Hi! Thanks for stopping by! I’m Stefan Vezenkoski, 21 years old, currently a third-year student at
+                    Hi! Thanks for stopping by! I’m Stefan Vezenkoski, 21 years old, currently a third-year student
+                    at
                     the Faculty of Computer Science and Engineering (FINKI) at Ss. Cyril and Methodius University in
                     Skopje (UKIM)
-                    . I completed my secondary education at Medical High School "Gjorce Petrov" in Prilep with a GPA of
+                    . I completed my secondary education at Medical High School "Gjorce Petrov" in Prilep with a GPA
+                    of
                     5.00, and then decided to explore a completely different field by enrolling at FINKI.</p>
 
-                <p> It was challenging at first, but with enthusiasm, persistence, and a strong desire to learn, I’ve
-                    reached this point and continue to progress with determination. I’m a driven individual who loves
+                <p> It was challenging at first, but with enthusiasm, persistence, and a strong desire to learn,
+                    I’ve
+                    reached this point and continue to progress with determination. I’m a driven individual who
+                    loves
                     learning new things every day and constantly improving myself to be better than yesterday.</p>
 
-                <p>During the summer of 2025, I worked as a Data Steward at Veeva Systems, where I gained experience in
+                <p>During the summer of 2025, I worked as a Data Steward at Veeva Systems, where I gained experience
+                    in
                     remote work and collaboration with a global team. This role helped me develop teamwork skills,
-                    responsibility, adaptability, and the ability to learn and grow in a professional environment.</p>
+                    responsibility, adaptability, and the ability to learn and grow in a professional environment.
+                </p>
 
                 <p> That’s a brief introduction about me!</p>
 
             </div>
 
             <div>
-                <p>I enjoy taking portrait photos with my iPhone. Photography allows me to capture emotions and unique moments. Here are some of my favourite shots: </p>
+                <p>I enjoy taking portrait photos with my iPhone. Photography allows me to capture emotions and
+                    unique
+                    moments. Here are some of my favourite shots: </p>
                 <div class="gallery-container">
                     <div class="gallery-track">
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_8023.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_8023.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_2456.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_2456.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_8258.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_8258.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_4482.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_4482.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_9516.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_9516.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6168.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6168.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_7210.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_7210.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_4377.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_4377.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_8081.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_8081.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6903.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6903.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_8257.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_8257.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_7721.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_7721.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6516.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6516.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_7802.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_7802.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_4454.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_4454.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6168.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6168.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_9253.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_9253.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6514.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6514.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6742.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6742.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_8018.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_8018.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6515.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6515.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_5074.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_5074.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6168.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6168.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_7207.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_7207.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_9024.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_9024.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_7968.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_7968.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_8284.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_8284.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_6514.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_6514.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_7972.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_7972.jpeg" alt="Portrait 3">
                         </a>
-                        <a href="public/pic%20(3).jpg" class="gallery-item" target="_blank">
+                        <a href="public/IMG_5206.jpeg" class="gallery-item" target="_blank">
                             <img src="public/IMG_5206.jpeg" alt="Portrait 3">
                         </a>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 </section>
 
 <!-- cv sekcija -->
@@ -1460,13 +1624,13 @@
     <div class="container">
         <div class="section-header">
             <h2>Professional <span>CV</span></h2>
-            <p style="color:black">My qualifications and experience</p>
+            <p>My qualifications and experience</p>
         </div>
 
         <div class="cv-display hidden">
             <div class="cv-header-card">
                 <h1>Stefan Vezenkoski</h1>
-                <h3>Student at FINKI</h3>
+                <h3>Full-Stack Developer & Software Engineering Student</h3>
             </div>
 
             <div class="cv-content">
@@ -1497,27 +1661,28 @@
                         </div>
                         <div class="cv-info-content">
                             <h4>Location</h4>
-                            <p>Skopje, Macedonia</p>
+                            <p>Skopje, North Macedonia</p>
                         </div>
                     </div>
 
                     <div class="cv-info-item">
                         <div class="cv-info-icon">
-                            <i class="fas fa-globe"></i>
+                            <i class="fas fa-language"></i>
                         </div>
                         <div class="cv-info-content">
                             <h4>Languages</h4>
-                            <p>Macedonian (Native), English (Fluent)</p>
+                            <p>Macedonian (Native), English (B2)</p>
                         </div>
                     </div>
-                </div>
-                <div class="cv-info-item">
-                    <div class="cv-info-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="cv-info-content">
-                        <h4>Driving Licence</h4>
-                        <p>B category</p>
+
+                    <div class="cv-info-item">
+                        <div class="cv-info-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="cv-info-content">
+                            <h4>Driving Licence</h4>
+                            <p>B Category</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1534,13 +1699,11 @@
                     </div>
                     <div class="cv-timeline-desc">
                         <p>Bachelor of Computer Science and Engineering</p>
-                        </br>
                         <ul>
-                            <li>Programming: Java, JavaScript, C++, C#</li>
-                            <li>Frameworks: .NET Web Forms, .NET MVC</li>
-                            <li>Web Development: HTML, CSS</li>
-                            <li>Tools & Platforms: Git, GitHub, Docker, Unix/Linux</li>
-                            <li>Productivity: Microsoft Office, OpenOffice</li>
+                            <li>Programming: Java, TypeScript, JavaScript, C++, C#</li>
+                            <li>Frameworks: Spring Boot, React, Next.js, FastAPI</li>
+                            <li>Web Development: HTML, CSS, Tailwind CSS</li>
+                            <li>Tools & Platforms: Git, GitHub, Docker, Supabase, Unix/Linux</li>
                         </ul>
                     </div>
                 </div>
@@ -1558,149 +1721,196 @@
                 </div>
             </div>
 
+            <h3 class="cv-section-title">Technologies & interests</h3>
+                <div class="container">
+                    <div class="tech-grid-container">
 
-            <h3 class="cv-section-title">Technical Skills</h3>
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-react-original colored"></i>
+                                <span class="tech-card-name">React</span>
+                            </div>
+                            <span class="tech-card-badge">Frontend</span>
+                            <p class="tech-card-desc">SPA, Hooks, State Management</p>
+                        </div>
 
-            <div class="cv-skills-container">
-                <div class="cv-skill-category">
-                    <h4><i class="fas fa-code"></i> Programming Languages</h4>
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>C/C++</span>
-                            <span>92%</span>
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-typescript-plain colored"></i>
+                                <span class="tech-card-name">TypeScript</span>
+                            </div>
+                            <span class="tech-card-badge">Frontend</span>
+                            <p class="tech-card-desc">Type safety, interfaces, clean code</p>
                         </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 92%"></div>
+
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-tailwindcss-plain colored"></i>
+                                <span class="tech-card-name">Tailwind</span>
+                            </div>
+                            <span class="tech-card-badge">Frontend</span>
+                            <p class="tech-card-desc">Utility-first UI & responsive design</p>
                         </div>
+
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-java-plain colored"></i>
+                                <span class="tech-card-name">Java</span>
+                            </div>
+                            <span class="tech-card-badge">Backend</span>
+                            <p class="tech-card-desc">OOP, Core algorithms & systems</p>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-spring-plain colored"></i>
+                                <span class="tech-card-name">Spring Boot</span>
+                            </div>
+                            <span class="tech-card-badge">Backend</span>
+                            <p class="tech-card-desc">REST architecture & Dependency Injection</p>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-postgresql-plain colored"></i>
+                                <span class="tech-card-name">PostgreSQL</span>
+                            </div>
+                            <span class="tech-card-badge">Database</span>
+                            <p class="tech-card-desc">Relational DB, indexing & queries</p>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-docker-plain colored"></i>
+                                <span class="tech-card-name">Docker</span>
+                            </div>
+                            <span class="tech-card-badge">DevOps</span>
+                            <p class="tech-card-desc">Containerization & Compose</p>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-git-plain colored"></i>
+                                <span class="tech-card-name">Git</span>
+                            </div>
+                            <span class="tech-card-badge">DevOps</span>
+                            <p class="tech-card-desc">Version control & workflows</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-kubernetes-plain colored"></i>
+                                <span class="tech-card-name">Kubernetes</span>
+                            </div>
+                            <span class="tech-card-badge">DevOps</span>
+                            <div class="learning-indicator">
+                                <span class="tech-card-desc"></span>
+                                <p class="tech-card-desc">Оркестрација & K3s</p>
+
+                            </div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="devicon-kubernetes-plain colored"></i>
+                                <span class="tech-card-name">Supabase</span>
+                            </div>
+                            <span class="tech-card-badge">Backend / DB</span>
+                            <div class="learning-indicator">
+                                <span class="tech-card-desc">BaaS, Auth, Realtime & Postgres</span>
+                                <p class="tech-card-desc"></p>
+
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>Java</span>
-                            <span>85%</span>
+                    <h3 class="cv-section-title" style="margin-top: 3rem;">Currently studying</h3>
+                    <div class="tech-grid-container is-learning">
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="fa-solid fa-robot"></i>
+                                <span class="tech-card-name">AI Агенти</span>
+                            </div>
+                            <span class="tech-card-badge">AI / Automation</span>
+                            <div class="learning-indicator">
+                                <span>MCP, Workflows & Tool-use</span>
+                            </div>
                         </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
 
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>JavaScript</span>
-                            <span>88%</span>
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <i class="fa-solid fa-terminal"></i>
+                                <span class="tech-card-name">Prompt Eng.</span>
+                            </div>
+                            <span class="tech-card-badge">AI</span>
+                            <div class="learning-indicator">
+                                <span>LLM integration & System prompts</span>
+                            </div>
                         </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 88%"></div>
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <span class="tech-card-name">Python & FastAPI</span>
+                            </div>
+                            <span class="tech-card-badge">AI</span>
+                            <span class="tech-card-badge">FastAPI</span>
+                            <span class="tech-card-badge">Data Science</span>
+                            <div class="learning-indicator">
+                                <span class="learning-dot"></span>
+                            </div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <span class="tech-card-name">Next.js</span>
+                            </div>
+                            <span class="tech-card-badge">SSR</span>
+                            <span class="tech-card-badge">App Router</span>
+                            <span class="tech-card-badge">Fullstack Web</span>
+                            <div class="learning-indicator">
+                                <span class="learning-dot"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="cv-skill-category">
-                    <h4><i class="fas fa-laptop-code"></i> Web Technologies</h4>
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>HTML/CSS</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>React.js</span>
-                            <span>82%</span>
-                        </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 82%"></div>
-                        </div>
-                    </div>
-
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>Node.js</span>
-                            <span>78%</span>
-                        </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 78%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cv-skill-category">
-                    <h4><i class="fas fa-database"></i> Core Competencies</h4>
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>Problem Solving</span>
-                            <span>94%</span>
-                        </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 94%"></div>
-                        </div>
-                    </div>
-
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>Data Structures</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-
-                    <div class="cv-skill-item">
-                        <div class="cv-skill-name">
-                            <span>OOP</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="cv-skill-bar">
-                            <div class="cv-skill-progress" style="width: 88%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <h3 class="cv-section-title">Professional Experience</h3>
 
             <div class="cv-timeline">
-
                 <div class="cv-timeline-item">
-                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jul 2025 - Oct 2025</div>
+                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> Jul 2025 – Oct 2025</div>
                     <div class="cv-timeline-title">Data Steward | Data & Web Researcher</div>
                     <div class="cv-timeline-desc">
-                        • Collaborated with a global team and gained experience in organization, attention to detail,
-                        and responsibility through research on healthcare organizations in the Netherlands.
+                        <ul>
+                            <li>Collaborated with a global team on research and management of healthcare
+                                organization
+                                data.
+                            </li>
+                            <li>Maintained high attention to detail, accuracy, and structured data validation
+                                workflows.
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-
-            <div class="cv-timeline">
                 <div class="cv-timeline-item">
-                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2022 - 2023</div>
-                    <div class="cv-timeline-title">Practice at General Hospital Borka Taleski - Prilep</div>
+                    <div class="cv-timeline-date"><i class="fas fa-calendar-alt"></i> 2022 – 2023</div>
+                    <div class="cv-timeline-title">Medical Practice | General Hospital "Borka Taleski" – Prilep
+                    </div>
                     <div class="cv-timeline-desc">
-                        • Learned basic's of patient's healthcare <br>
-                        • Worked on patient record management system <br>
-                        • Learned medical terminology <br>
+                        <ul>
+                            <li>Gained practical knowledge in healthcare procedures and medical terminology.</li>
+                            <li>Assisted with patient record management processes.</li>
+                        </ul>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-
-
+    </div>
 </section>
 <div class="cv-actions">
     <a href="cv/CV_europass_Stefan_Vezenkoski.pdf" download class="btn">
         <i class="fas fa-print"></i> Download CV
-    </a>    <a href="#contact" class="btn">
-        <i class="fas fa-paper-plane"></i> Contact Me
-    </a>
+    </a> <a href="#contact" class="btn">
+    <i class="fas fa-paper-plane"></i> Contact Me
+</a>
 </div>
 <!-- proekti sekcija  -->
 <section id="projects" class="cv-section">
@@ -1712,11 +1922,83 @@
 
         <div class="projects-grid">
             <div class="project-card hidden">
+                <div class="pin-badge">
+                    <i class="fas fa-thumbtack"></i>
+                </div>
                 <div class="project-image">
-                    <img src="public/8-Septermvri-opsta-slika-11.jpg" alt="Project">
+                    <img src="public/studentarija.png" alt="Project">
+                </div>
+                <div class="project-content">
+                    <h3>Studentarija MK – Full-stack web application</h3>
+                    <p>Studentarija.mk is a web platform dedicated to digitalizing and streamlining student life. As
+                        one
+                        of my most complex projects, it uses Supabase as a complete backend solution (PostgreSQL,
+                        Auth,
+                        Realtime) paired with a modern frontend stack to deliver high performance and scalability.
+                        It
+                        features role-based authentication with standard user access and a full admin dashboard for
+                        end-to-end CRUD control and application management.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Vercel</span>
+                        <span class="tech-tag">Supabase</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/stefanvezenkoski/studentarija-mk" target="_blank"
+                           class="button-28"><i class="fab fa-github"></i> View Code</a>
+
+                        <a href="https://studentarija-mk-app.vercel.app/" class="button-28" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card hidden">
+                <div class="project-image">
+                    <img src="public/full_arch.png" alt="Project">
+                </div>
+                <div class="project-content">
+                    <h3>Task manager app - CI/CD project</h3>
+                    <p>A full-stack CRUD app (React + Vite frontend, FastAPI + PostgreSQL backend) built to simulate
+                        a
+                        real CI/CD workflow — Dockerized, pushed to DockerHub via GitHub Actions, and deployed to a
+                        local Kubernetes (k3d) cluster.</p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">PostresSQL</span>
+                        <span class="tech-tag">CI/CD</span>
+                        <span class="tech-tag">DevOps</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">Kubernetes</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/stefanvezenkoski/task-manager-app" class="button-28"
+                           target="_blank"><i class="fas fa-external-link-alt"></i> View code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card hidden">
+                <div class="project-image">
+                    <video autoplay loop muted playsinline style="max-width: 100%; height: auto;">
+                        <source src="public/8mi.mp4" type="video/mp4">
+                        Вашиот прелистувач не поддржува видео таг.
+                    </video>
                 </div>
                 <div class="project-content">
                     <h3>Modern Web Presence for PHI '8th September' Hospital – Skopje</h3>
+                    <p>Built as a university project at FINKI (FCSE), this platform was designed to modernize the
+                        web
+                        presence of one of the largest medical centers in Skopje. Powered by WordPress technologies
+                        and
+                        tailored plugins, the project combined deep research into healthcare accessibility with
+                        creative
+                        UI/UX design to ensure an intuitive, patient-centered user experience.</p>
                     <div class="project-tech">
                         <span class="tech-tag">WordPress</span>
                         <span class="tech-tag">CSS</span>
@@ -1732,12 +2014,15 @@
 
             <div class="project-card hidden">
                 <div class="project-image">
-                    <img src="public/img_3.png"
-                         alt="Project">
+                    <img src="public/img_3.png" alt="Project">
                 </div>
                 <div class="project-content">
                     <h3>SovetkoMk/AdviceMK</h3>
                     <p>Interactive Mental Health Chatbot – Macedonian Language Support Only</p>
+                    <p>SovetkoMk is an AI-powered web platform built through rapid "vibe coding." It provides
+                        instant,
+                        context-aware assistance and prompt workflows with a clean, responsive UI focused on fast
+                        problem-solving.</p>
                     <div class="project-tech">
                     </div>
                     <div class="project-links">
@@ -1750,15 +2035,17 @@
             </div>
             <div class="project-card hidden">
                 <div class="project-image">
-                    <img src="public/img.png"
-                         alt="Project">
+                    <img src="public/img.png" alt="Project">
                 </div>
                 <div class="project-content">
                     <h3>Statistical Analysis of Glaucoma-Related Medical Data</h3>
                     <p>As part of a seminar paper for the course <strong>Business Statistics</strong>, I analyzed a
-                        medical dataset related to glaucoma patients, sourced from Kaggle. The dataset contains eight
-                        attributes, including age, ocular pressure, and corneal thickness. I performed descriptive and
-                        comparative statistical analysis using the <strong>R programming language</strong>, focusing on
+                        medical dataset related to glaucoma patients, sourced from Kaggle. The dataset contains
+                        eight
+                        attributes, including age, ocular pressure, and corneal thickness. I performed descriptive
+                        and
+                        comparative statistical analysis using the <strong>R programming language</strong>, focusing
+                        on
                         the features PSD and cornea_thickness.</p>
                     <div class="project-tech">
                         <span class="tech-tag">R programming language</span>
@@ -1772,20 +2059,20 @@
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/stefanvezenkoski/Seminarska-Rabota-po-BS-vo-R" target="_blank"
-                           class="button-28"><i
-                                class="fab fa-github"></i> View Project at GitHub</a>
+                           class="button-28"><i class="fab fa-github"></i> View Project at GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card hidden">
                 <div class="project-image">
-                    <img src="public/img_2.png"
-                         alt="Project">
+                    <img src="public/img_2.png" alt="Project">
                 </div>
                 <div class="project-content">
                     <h3>MetaFINKI</h3>
-                    <p>3D FINKI building in Blender. This project, created as part of the Digitization course, involves
-                        crafting a 3D model of the FINKI building using Blender. The aim is to produce a detailed and
+                    <p>3D FINKI building in Blender. This project, created as part of the Digitization course,
+                        involves
+                        crafting a 3D model of the FINKI building using Blender. The aim is to produce a detailed
+                        and
                         accura…
                     </p>
                     <div class="project-tech">
@@ -1825,8 +2112,8 @@
                     <input type="email" id="email" name="email" placeholder="Your email address" required>
                 </div>
                 <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your message here..." rows="5"
-                              required></textarea>
+                        <textarea id="message" name="message" placeholder="Your message here..." rows="5"
+                                  required></textarea>
                 </div>
                 <button type="submit" class="btn">
                     <i class="fas fa-paper-plane"></i> Send a message
@@ -1842,6 +2129,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     emailjs.init("uACwIgUdKctKAHk1K");
 
@@ -2072,7 +2360,7 @@
         });
     }
 
-    (function() {
+    (function () {
         const canvas = document.getElementById('canvas-background');
         if (!canvas) return;
 
@@ -2134,7 +2422,7 @@
 
                     if (distance < 100) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(41, 196, 23, ${0.2 * (1 - distance/100)})`;
+                        ctx.strokeStyle = `rgba(41, 196, 23, ${0.2 * (1 - distance / 100)})`;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.stroke();
@@ -2242,9 +2530,18 @@
         }
     }
 
-
-
-
+    const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        centeredSlides: true,
+        loop: true,
+        speed: 600,
+        breakpoints: {
+            640: {slidesPerView: 2, spaceBetween: 20},
+            1024: {slidesPerView: 2.5, spaceBetween: 30}
+        }
+    });
 </script>
 </body>
+
 </html>
